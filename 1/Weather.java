@@ -16,12 +16,6 @@ public class Weather {
         }
         double average = (double) sum / days;
 
-        int count = 0;                      // see if each day is above average
-        for (int i = 0; i < days; i++) {
-            if (temps[i] > average) {
-                count++;
-            }
-        }
         // report results
         System.out.printf("Average temp = %.1f\n", average);
 
