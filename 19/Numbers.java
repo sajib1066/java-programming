@@ -5,6 +5,17 @@ import java.io.FileNotFoundException;
 
 
 public class Numbers {
+
+    // Removes all elements with even values from the given list.
+    public static void filterEvens(ArrayList<Integer> list) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            int n = list.get(i);
+            if (n % 2 == 0) {
+                list.remove(i);
+            }
+        }
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         Scanner input = new Scanner(new File("numbers.txt"));
@@ -14,20 +25,7 @@ public class Numbers {
             numbers.add(number);
         }
         System.out.println("Array List: " + numbers);
-        
-        double total = 0;
-
-        for(int i=0; i<numbers.size(); i++){
-        	total = total + numbers.get(i);
-        }
-        double average = total / numbers.size();
-        System.out.println("Average: " + average);
-
-        int highestNumber = Collections.max(numbers);
-        int lowestNumber = Collections.min(numbers);
-
-        System.out.println("Highest Number: " + highestNumber);
-        System.out.println("Lowest Number: " + lowestNumber);
-
+        filterEvens(numbers);
+        System.out.println(numbers);
     }
 }
